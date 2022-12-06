@@ -772,6 +772,7 @@ void increment_x_then_y_then_z(dim3 &i, const dim3 &bound) {
 }
 
 void gpgpu_sim::launch(kernel_info_t *kinfo) {
+  printf("gpgpu_sim::launch: kernelID = %u, streamID = %llu\n", kinfo->get_uid(), kinfo->get_streamid());
   unsigned cta_size = kinfo->threads_per_cta();
   if (cta_size > m_shader_config->n_thread_per_shader) {
     printf(
@@ -1137,6 +1138,7 @@ void gpgpu_sim::init() {
 
 void gpgpu_sim::update_stats() {
   m_memory_stats->memlatstat_lat_pw();
+  //fprintf(stdout, "gpu_tot_sim_cycle=%d gpu_sim_cycle=%d\n", gpu_tot_sim_cycle, gpu_sim_cycle);
   gpu_tot_sim_cycle += gpu_sim_cycle;
   gpu_tot_sim_insn += gpu_sim_insn;
   gpu_tot_issued_cta += m_total_cta_launched;
@@ -1981,6 +1983,7 @@ void gpgpu_sim::cycle() {
       raise(SIGTRAP);  // Debug breakpoint
     }
     gpu_sim_cycle++;
+    //fprintf(stdout, "gpu_sim_cycle %d\n", gpu_sim_cycle);
 
     if (g_interactive_debugger_enabled) gpgpu_debug();
 
