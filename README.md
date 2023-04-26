@@ -57,6 +57,12 @@ Complex Dynamics in Many-Core Accelerator Architectures, In Proceedings of the
 IEEE International Symposium on Performance Analysis of Systems and Software
 (ISPASS), pp. 164-174, White Plains, NY, March 28-30, 2010.
 
+If you use per-stream status tracking feature in your publications, please cite:
+
+Shichen Qiao, Xin Su, Matthew D. Sinclair
+Integrating Per-Stream Stat Tracking into Accel-Sim, arXiv:2304.11136
+https://arxiv.org/abs/2304.11136
+
 This file contains instructions on installing, building and running GPGPU-Sim.
 Detailed documentation on what GPGPU-Sim models, how to configure it, and a
 guide to the source code can be found here: <http://gpgpu-sim.org/manual/>.
